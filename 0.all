@@ -1,0 +1,33 @@
+﻿<html> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>html静态索引页面的起源</title>
+<head>
+<style>
+*{text-align:center;}
+.html0:after{
+content: 'html静态索引页面的起源';
+}
+</style>
+</head>
+<body>
+<h2>html静态索引页面的起源</h2>
+2018/3/1&nbsp;13:38<br><br>
+<div>
+其实一开始对于html磁索引我是并不清楚的,就开始百度一点一点的找CSS的相容型,最后在link链接找到了可以索引下一篇文章的方法。
+</div>
+<div>
+功能非常简单，就是将上一个页面(本页面必须包含上一个页面地址和下一个页面地址)和下一个页面当做css加载进来。
+具体代码在下一篇文章。
+</div>
+
+
+<h4>
+<div style="text-align:left;">
+<br>上一篇：<a class="html-1" href="-1.html"></a>
+<br>下一篇：<a class="html1" href="1.html"></a>
+</div>
+</h4>
+
+</body>
+</html>
