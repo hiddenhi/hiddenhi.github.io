@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jQuery图片自动添加水印插件 - xw素材网</title>
+<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="css/demo.css">
+</head>
+<body>
+
+<input type="file" id='file'; onchange="c()">
+<div id="show"></div>
+<canvas id="sv1"></canvas>
+</body>
+<script type="text/javascript">
+function c () {
+var r= new FileReader();
+f=document.getElementById('file').files[0];
+burl=window.URL.createObjectURL(f);
+
+document.getElementById('show').innerHTML='<img id="sv2" src="'+burl+'" class="sample2" data-img2blob="'+burl+'"  style="width:100%;" />';
+gg();
+}
+</script>
+<br>
+水印文字:<input id="wz" value="世纪城生活广场"><br>
+文字大小:<input id="dx" value="100"><br>
+左边间距:<input id="xzb" value="10"><br>
+上边间距:<input id="yzb" value="99"><br>
+<button onclick="gg(wz.value,dx.value,xzb.value,yzb.value)">修改</button>
+
+<div id="scc"></div>
+<br>
+
+<br>
+<button onclick="ime()">导出</button>
+
+<script>
+
+function ime(){
+scc.innerHTML='<canvas id="myCanvas" height="'+sv2.height+'" width="'+sv2.width+'"  style="border:1px solid #c3c3c3;"></canvas>';
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+var img=new Image();
+img.onload = function(){
+ctx.drawImage(img,0,0,c.width,c.height);
+};
+img.width="100%";
+img.height="100%";
+img.src=sv2.src;
+
+
+}
+</script>
+
+<br>
+<img id="zuihou"><br>
+<button onclick="dddd()">输出后长按图片保存</button>
+<script>
+
+function dddd(){
+var type = 'png';
+var imgData = myCanvas.toDataURL(type);
+//alert(imgData);
+zuihou.src=imgData;
+}
+</script>
+
+
+<iimg class="sample2" data-img2blob="img/timg.jpg"  style="width:100%;" />
+
+
+
+<script src="js/jquery-1.11.0.min.js" ></script>
+<script src="js/img2blob.js"></script>		
+<script>
+
+function gg(iwz,idx,x,y){
+if(x>0){
+
+$(function() {
+	// default
+	$(".sample1").img2blob();
+	// with watermark
+	$(".sample2").img2blob({
+		watermark: iwz,
+		fontStyle: 'Microsoft YaHei,Arial',
+		fontSize: idx, // px
+		fontColor: '#1e824c', // default 'black'
+		fontX: x, // The x coordinate where to start painting the text
+		fontY: y // The y coordinate where to start painting the text
+	});
+});
+
+}
+else{
+$(function() {
+	// default
+	$(".sample1").img2blob();
+	// with watermark
+	$(".sample2").img2blob({
+		watermark: '@xw素材网',
+		fontStyle: 'Microsoft YaHei,Arial',
+		fontSize: '20', // px
+		fontColor: '#1e824c', // default 'black'
+		fontX: 20, // The x coordinate where to start painting the text
+		fontY: 20 // The y coordinate where to start painting the text
+	});
+});
+}
+}
+</script>
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+</div>
+</body>
+</html>
