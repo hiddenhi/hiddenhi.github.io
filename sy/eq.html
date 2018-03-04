@@ -29,8 +29,10 @@
     </head>
     <body>
 <script src="jquery.min.js"></script>
+
+<input type="file" id='file'; onchange="c()">
 <div class="test">
-<img src="1.jpg">
+<div id="ximg"></div>
 <div id="dv">6666666666</div>
 </div>
 <br>
@@ -41,6 +43,16 @@
 <img id="zuihou" src="">
 <script src="html2canvas.js"></script>
 <script>
+
+
+function c () {
+var r= new FileReader();
+f=document.getElementById('file').files[0];
+burl=window.URL.createObjectURL(f);
+document.getElementById('ximg').innerHTML="<img src='"+burl+"'>";
+}
+
+
 
 function gg(){
 
