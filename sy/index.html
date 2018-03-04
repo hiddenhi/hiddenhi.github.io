@@ -8,6 +8,9 @@
 <link rel="stylesheet" type="text/css" href="css/normalize.css" />
 <link rel="stylesheet" type="text/css" href="css/demo.css">
 </head>
+<style>
+*{text-align:center;}
+</style>
 <body>
 
 <input type="file" id='file'; onchange="c()">
@@ -19,8 +22,7 @@ function c () {
 var r= new FileReader();
 f=document.getElementById('file').files[0];
 burl=window.URL.createObjectURL(f);
-
-document.getElementById('show').innerHTML='<img id="sv2" src="'+burl+'" class="sample2" data-img2blob="'+burl+'"  style="width:100%;" />';
+document.getElementById('show').innerHTML='<img id="sv2" src="'+burl+'" class="sample2" data-img2blob="'+burl+'"   style="width:100%;"/>';
 gg();
 }
 </script>
@@ -30,10 +32,11 @@ gg();
 左边间距:<input id="xzb" value="10"><br>
 上边间距:<input id="yzb" value="99"><br>
 <button onclick="gg(wz.value,dx.value,xzb.value,yzb.value)">修改</button>
-
+<br>
+<img id="daoc">
+<br>
 <div id="scc"></div>
 <br>
-
 <br>
 <button onclick="ime()">导出</button>
 
@@ -69,8 +72,6 @@ zuihou.src=imgData;
 </script>
 
 
-<iimg class="sample2" data-img2blob="img/timg.jpg"  style="width:100%;" />
-
 
 
 <script src="js/jquery-1.11.0.min.js" ></script>
@@ -88,7 +89,7 @@ $(function() {
 		watermark: iwz,
 		fontStyle: 'Microsoft YaHei,Arial',
 		fontSize: idx, // px
-		fontColor: '#1e824c', // default 'black'
+		fontColor: '#1e87cc', // default 'black'
 		fontX: x, // The x coordinate where to start painting the text
 		fontY: y // The y coordinate where to start painting the text
 	});
@@ -101,12 +102,12 @@ $(function() {
 	$(".sample1").img2blob();
 	// with watermark
 	$(".sample2").img2blob({
-		watermark: '@xw素材网',
+		watermark: 'IFYUN水印',
 		fontStyle: 'Microsoft YaHei,Arial',
-		fontSize: '20', // px
-		fontColor: '#1e824c', // default 'black'
+		fontSize: '50', // px
+		fontColor: '#1e87cc', // default 'black'
 		fontX: 20, // The x coordinate where to start painting the text
-		fontY: 20 // The y coordinate where to start painting the text
+		fontY: 50 // The y coordinate where to start painting the text
 	});
 });
 }
