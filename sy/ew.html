@@ -120,9 +120,10 @@ zuihou.src="";
     context.scale(2,2);
      html2canvas(document.querySelector('div'),{canvas:canvas2}).then(function(canvas) {
             document.body.appendChild(canvas);
+            fg();
      });
 }
-fg();
+
 }
 
 
