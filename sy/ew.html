@@ -99,12 +99,11 @@ fww.src=this.result;
 
 <script>
 function gg(){
+
 if(document.getElementById("font")){
 document.body.removeChild(document.getElementById("font"));
 zuihou.src="";
 }else{
-
-   
     var canvas2 = document.createElement("canvas");
     let _canvas = document.querySelector('div');
     var w = parseInt(window.getComputedStyle(_canvas).width);
@@ -122,9 +121,11 @@ zuihou.src="";
      html2canvas(document.querySelector('div'),{canvas:canvas2}).then(function(canvas) {
             document.body.appendChild(canvas);
      });
+}
 fg();
 }
-}
+
+
 function fg(){
 var canvass=document.getElementById("font");
 var base64=canvass.toDataURL("png");
