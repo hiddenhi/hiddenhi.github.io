@@ -1,0 +1,333 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=2.0">
+<meta name="MobileOptimized" content="240">
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>一些编写高性能HTML应用的建议_HTML/Xhtml_网页制作</title>
+
+<style>
+body{text-align:center}
+xmp{text-align:left}
+.code {
+    width:auto;
+    color:#1e87cc;
+    padding: 10px 10px 10px 40px;
+    font-size: 13px;
+    line-height: 18px;
+    background-color: #eee;
+    font-family: "Lucida Console", Consolas, Monaco;
+    white-space: pre-wrap;
+    word-break: break-all;
+    position: relative;
+    overflow: hidden;
+}
+
+</style>
+</head>
+
+
+<body>
+
+<h1>一些编写高性能HTML应用的建议_HTML/Xhtml_网页制作</h1>
+<h2>一些编写高性能HTML应用的建议_HTML/Xhtml_网页制作</h2>
+<div>
+<xmp class="code">
+你怎么能提高网页性能？
+
+大多数开发者会通过JavaScript和图片来优化，通过服务器配置，压缩文件和合并文件 - 甚至调整CSS（合并小图片）。
+
+可怜的HTML老是被忽视，尽管它一直是网络的核心语言。
+
+HTML正在变得越来越大。排名前100的网站每个HTML页面大多在40K左右。亚马逊和雅虎使用上千个HTML页面。在youtube.com主页面，HTML元素高达3500个。
+
+减少的HTML复杂性和一个页面的元素数量并不会明显提高解析时间 - 但HTML是构建极速网页，和适应不同设备并影响成功的一个关键性的因素。
+
+在本文中，您将了解如何编写简洁干净的HTML，使您能够创建快速加载并支持多种设备的网站，将易于调试和维护。
+
+写代码的方法并不是只有一种-尤其是HTML。这里只是讲解一般经验，但并不是唯一正确的选择。
+
+HTML, CSS 和 JavaScript
+
+HTML是一种标记语言，用于表示结构和内容。
+
+HTML不应被用来显示风格和样式。不要为了显得“更大”把文字写在标题标签（h1~h6）中，或只是为了缩进而使用blockquotes元素。相反，使用CSS来改变元素的外观和布局。
+
+HTML元素的默认外观是通过浏览器的默认样式实现的：Firefox，Internet Explorer和Opera均不一样。例如，在Chrome中默认h1元素呈现为32px的大小。
+
+三个基本原则：
+
+使用HTML表示结构，CSS用来表现不同样式的风格和主题。JavaScript来响应用户行为。
+
+使用HTML，必要时借助CSS，并且在不得己时再添加JavaScript。例如：在许多情况下，你可能使用HTML表单进行验证，使用CSS或SVG来实现动画。
+
+将CSS和JavaScript从你的HTML代码中分离。让他们能够缓存，这使代码更易于调试。在生产中，CSS和JavaScript是可以压缩合并的，应该作为你Build系统的一部分。  注* 参见 JavaScript构建（编绎）系统大比拼
+
+Document文档结构
+
+使用 HTML5的document type:
+
+XML/HTML Code复制内容到剪贴板
+
+Recipes: pesto
+
+Pesto
+Pesto is good!
+
+在页面最头部引用CSS文件，如在head元素中：
+
+CSS Code复制内容到剪贴板
+
+My pesto recipe
+
+这样，浏览器就可以在解析HTML前预先加载样式而不会呈现一个混乱的页面布局。
+
+把JavaScript放在页面的最底部, 在body封闭之前。这将提高页面渲染时间，因为浏览器可以在JavaScript装载前将页面渲染出来:
+
+JavaScript Code复制内容到剪贴板
+
+...
+
+在JavaScript添加事件处理。 不要在HTML中添加。这样非常难以维护，比如:
+
+XML/HTML Code复制内容到剪贴板
+
+index.html:
+
+...
+
+...
+
+Foo
+
+...
+
+这样就好多了:
+
+JavaScript Code复制内容到剪贴板
+
+...
+
+...
+
+Foo
+
+...
+
+js/local.js:
+
+init();
+
+varfooButton =
+
+document.querySelector('#foo');
+
+fooButton.onclick = handleFoo();
+
+合法的HTML
+
+Web网页成功的一个主要因素就是浏览器可以处理无效的HTML。浏览器还有一些如何呈现无效代码的标准化规则。
+
+但是，这不你放任的理由。有效的HTML更容易调试，往往文件更小，速度更快，占用资源更少，因为它们渲染更快。无效的HTML让响应式设计难以实施。
+
+使用模板的时候写有效的HTML是特别重要的。
+
+在你的BUILD系统中验证HTML：使用验证插件，如HTMLHint和SublimeLinter来检查你HTML的语法。
+
+使用HTML5文档类型。
+
+请务必保持HTML的层次：正确嵌套元素，确保没有任何未关闭的元素。它可以帮助调试者添加注释。
+
+XML/HTML Code复制内容到剪贴板
+
+...
+
+
+
+请务必在非自封闭的元素后加上结束标签，比如，下面的也可以工作：
+
+XML/HTML Code复制内容到剪贴板
+
+Pesto is good to eat...
+
+...and pesto is easy to make.
+
+但是下面的写法可以避免错误，段落层次更加明显:
+
+Pesto is good to eat...
+
+...and pesto is easy to make.
+
+items元素（li）并不是必须封闭的，有些非常聪明的的程序员会写成这样，无论如何，list元素(ul)是必须封闭的。
+
+XML/HTML Code复制内容到剪贴板
+
+Basil
+Pine nuts
+Garlic
+有一点你必须注意video和audio元素。他们不是自封闭的：
+
+XML/HTML Code复制内容到剪贴板
+
+
+
+
+
+Video element not supported.
+
+相反，通过删除不必要的代码HTML页面会变得更干净
+
+没有必要为自封闭元素添加"/"，像img等
+
+设置属性是没有值的，如果不加属性的话（这种情况下，它不会自动播放，没有控制控件），
+
+video，它是没有任何属性的
+
+XML/HTML Code复制内容到剪贴板
+
+下面两种更好
+
+XML/HTML Code复制内容到剪贴板
+
+这种可读性更强
+
+XML/HTML Code复制内容到剪贴板
+
+stylet和script标签不需要type属性；默认就是css和javascript
+
+优化协议地址更好（去除置http或https，它会根据当前协议自动配)
+
+XML/HTML Code复制内容到剪贴板
+
+Tag soup
+
+增强可读性，如，第一眼看上去就像是个标题
+
+XML/HTML Code复制内容到剪贴板
+
+Contact
+而这种则像个链接
+
+
+Contact
+应该使用小写
+
+XML/HTML Code复制内容到剪贴板
+
+Home
+
+大小写混合看上去更恶心
+
+XML/HTML Code复制内容到剪贴板
+
+Pesto
+语义标记
+
+“语义”意思是跟含义相关
+
+HTML应该标记有意义的内容：元素和描述的内容相符。
+
+HTML5引入了一些新的‘语义元素’像 , 和 。
+
+使用正确的元素表达正确的内容对于可访问性是有帮助的。
+
+使用
+
+,
+代表标题，
+或
+代表lists
+注意的标题应该以
+
+开始
+使用, , and
+
+使用
+
+写正文
+
+使用 和 代替 和 表示强调
+
+表单使用元素，input 类型
+
+混合文字和元素会导至布局的问题
+
+XML/HTML Code复制内容到剪贴板
+
+Name:
+最好用下面的表示
+
+XML/HTML Code复制内容到剪贴板
+
+Name:
+布局
+
+HTML应该使用有意义的组织结构，而不是通过样式来实现。
+
+使用
+
+元素代表文本，而不是用来布局。
+
+避免使用
+来换行，使用块级元素和CSS来代替。
+
+避免使用水平分隔线
+
+。使用CSS的border样式来控制。
+不要使用不必要的DIV。W3C对DIV的定义是排序的是最后一个元素。
+
+要了解哪些元素是块级元素，避免在DIV中放置不必要的块级元素。将一个list放到div中是没有必要的。
+
+不要使用table来布局。
+
+Flex box是被广泛推荐的，能用就用吧。
+
+使用CSS的padding和margin，理解盒子模型。
+
+CSS
+
+这篇文章是关于HTML的，但是这里有一些基本的CSS小贴士。
+
+避免内嵌的CSS。出于性能考虑，CSS可以在BUILD时内嵌到你的网页中。
+
+避免ID出现重复。
+
+如果你想对多个元素应用某个样式，那么请使用class，在父级元素上使用class比在子级上好：
+
+XML/HTML Code复制内容到剪贴板
+
+
+
+Basil
+
+Pine nuts
+
+Garlic
+
+
+
+Basil
+Pine nuts
+Garlic
+可访问性
+
+使用语义元素
+
+提供向后兼容
+
+在链接上添加title属性，而且应该避免与link文本出现相同的内容
+
+在输入元素上添加type和placeholder属性
+
+作者：Mr_Daimer
+链接：https://www.jianshu.com/p/c05254fd0881
+來源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+原文链接：https://www.jianshu.com/p/c05254fd0881
+</xmp>               
+
+</div>
+</body>
+</html>
