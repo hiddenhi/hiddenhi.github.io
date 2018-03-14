@@ -1,0 +1,53 @@
+<div id="sjj"></div>
+<script>
+function iimg(url){
+isj=0;
+var img=new Image();
+var isj=new Date().getTime();
+img.onerror=function(){
+var ij=new Date().getTime();
+var ji=ij-isj;
+if(ji>1000)
+{
+//sjj.innerHTML=sjj.innerHTML+url+"失败"+"<br>";
+}
+else
+{
+sjj.innerHTML=sjj.innerHTML+url+"可用"+"<br>";//ji是毫秒数
+}
+};
+
+img.src=url;
+}
+
+function v(){
+window.stop();
+document.execCommand("Stop");
+}
+
+cars=[
+"http://www.qiniu.com",
+"http://hiddenhi.github.io/news",
+"http://www.baidu.com",
+"http://s6613.top",
+"http://www.qq.com",
+"http://eb.qq.com",
+"http://fahjf.baidu.com",
+"http://hiddenhi.github.io",
+"http://mail.163.com"
+];
+
+for (var i=0;i<cars.length;i++)
+{
+iimg(cars[i]);
+}
+
+
+
+setTimeout(v,2000);//2000毫秒的缓冲期，如果延迟超过2000毫秒，将视为不可用状态
+
+</script>
+
+
+
+<button onclick="location.reload();">刷新</button>
