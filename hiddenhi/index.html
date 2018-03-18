@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="bootstrap.min.css"/>
+<title>隐藏的惊喜</title>
+<style>
+body{background:#FFFFFF}
+b{font-size:24px;}
+</style>
+<div id="sss" class="popover fade bottom in" style="display: none;" >
+<div class="arrow"></div>
+<h3 class="popover-title" style="display: none;"></h3>
+<div id="cou" class="popover-content">6666666666666666666666666</div></div>
+
+<h1>HIDDENHI</h1>
+<h2>开源项目</h2>
+
+<div style="text-align:left">
+<b>呵呵呵呵呵呵<i class="glyphicon glyphicon-question-sign help" onclick="zzz(this)" data-content="呵呵呵呵呵呵" data-html="true"></i></b><br>
+<b>啦啦啦啦啦<i class="glyphicon glyphicon-question-sign help" onclick="zzz(this)" data-content="啦啦啦啦啦" data-html="true"></i></b><br>
+<b>哼哼哼哼<i class="glyphicon glyphicon-question-sign help" onclick="zzz(this)" data-content="<img src='step1.gif'>" data-html="true"></i></b><br>
+<b>これは何の写真ですか
+<i class="glyphicon glyphicon-question-sign help"  onclick="zzz(this)" data-content="<img src='step1.gif'><br><img src='http://s6613.top/jpg/1.jpg'><br><img src='http://s6613.top/jpg/2.jpg'><br><img src='http://s6613.top/jpg/3.jpg'><br><img src='http://s6613.top/jpg/4.jpg'><br><a href='http://baidu.com'>下载</a>" data-html="true"></i></b><br>
+</div>
+
+<script>
+var il=0;
+function zzz(str){
+if(il==0){
+sss.style.display="block";
+var content=str.dataset.content;
+cou.innerHTML=content;
+var xwidth=str.offsetWidth/2;
+var xheight=str.offsetHeight;
+var bby=str.offsetTop+document.body.scrollTop;
+var bbx=str.offsetLeft;
+var xtop=xheight+bby;
+var xleft=xwidth+bbx;
+var ms=document.getElementById("sss").offsetWidth/2;
+sss.style.top=xtop+"px";sss.style.left=(xleft-ms)+"px";
+il=1;
+}
+else
+{
+sss.style.display="none";
+sss.style.top="0";
+sss.style.left="0";
+il=0;
+}
+}
+</script>
