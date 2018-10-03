@@ -1,0 +1,115 @@
+﻿<html>
+<meta http-equiv="Cache-Control" content="no-cache"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=2.0"/>
+<meta name="MobileOptimized" content="240"/>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+<head>
+<title>百哩管理</title>
+<script>
+document.oncontextmenu=function(e){
+//或者return false;
+e.preventDefault();
+};
+</script>
+<style>
+*{
+
+
+moz-user-select: -moz-none;
+
+
+-moz-user-select: none;
+
+
+-o-user-select:none;
+
+
+-khtml-user-select:none;
+
+
+-webkit-user-select:none;
+
+
+-ms-user-select:none;
+
+
+user-select:none;
+
+
+}
+@font-face{font-family:'key';src:url('key.ttf');}
+*{font-family:'key';}
+body{text-align:left;}
+#p1::before{content:"\EE01\EE02\EE03\EE04\EE05\EE06\EE07\EE08\EE09\EE10\EE11";}
+#index{font-size:28px;}
+
+div{text-align:center;}
+
+#or{
+text-align:left;
+height:-webkit-calc(100% - 2px); 
+height:-moz-calc(100% - 2px); 
+height:calc(100% - 2px); 
+border:1px solid #F0F0F0;
+width:-webkit-calc(100% - 42px); 
+width:-moz-calc(100% - 42px); 
+width:calc(100% - 42px); 
+}
+
+#a1::before{content:"\EE07"}
+#a2::before{content:"\EE01"}
+#a3::before{content:"\EE06"}
+#a4::before{content:"\EE12"}
+#a5::before{content:"\EE09"}
+#a6::before{content:"\EE03"}
+#a7::before{content:"\EE04"}
+#a8::before{content:"\EE08"}
+#a9::before{content:"\EE05"}
+#a10::before{content:"\EE10"}
+
+
+a{
+float:left;
+background-color:#FFF;
+display:block; /* 设置为块元素 */
+width:40px;
+height:40px;
+line-height:40px; /* 设置垂直居中 */
+text-align:center;
+color:#1e87cc;
+transition:background-color 0.8s;
+-moz-transition:background-color 0.8s; 
+-webkit-transition:background-color 0.8s;
+-o-transition:background-color 0.8s;
+}
+a:active{
+background:#D0D0D0;
+transition:background 0.1s;
+-moz-transition:background 0.1s; 
+-webkit-transition:background 0.1s;
+-o-transition:background 0.1s;
+}
+h3{text-align:center;height:20px;}
+</style>
+
+<span style="font-size:18px;">
+<body>
+<div id="index" style="float:left;">
+<a id="a1" title="我的信息" onclick="or.innerHTML='我的信息'"></a><br><span style="font-size:12px;color:#1e87cc;">我的</span><br>
+<a id="a2" title="主页" onclick="or.innerHTML='主页'"></a><br><span style="font-size:12px;color:#1e87cc;">主页</span><br>
+<a id="a3" title="工作" onclick="or.innerHTML='工作'"></a><br><span style="font-size:12px;color:#1e87cc;">工作</span><br>
+<a id="a4" title="客户管理" onclick="or.innerHTML='客户管理'"></a><br><span style="font-size:12px;color:#1e87cc;">客户</span><br>
+<a id="a5" title="更多" onclick="or.innerHTML='更多'"></a><br><span style="font-size:12px;color:#1e87cc;">更多</span><br>
+
+</div>
+
+<div id="or" style="float:left;color:#1e87cc;">
+<p id="my"></p>
+
+</div>
+
+
+</body>
+</span>
+
+</html>
