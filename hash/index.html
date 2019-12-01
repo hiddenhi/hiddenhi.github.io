@@ -1,0 +1,24 @@
+﻿
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>PND链私钥生成</title>
+</head>
+
+<style>
+
+</style>
+<body>
+
+<script src="sha256.js"></script>
+<input id="stxt">
+<br><button onclick="qsha256.innerText='0x'+hex_sha256(stxt.value)">生成sha256的PND链地址</button>
+<button onclick="qsha256.innerText=hex_md5(encodeURIComponent(stxt.value))">md5私钥</button>
+<button onclick="qsha256.innerText=hex_md5(encodeURIComponent('bc35cdb5bc'+(new Date()).getTime()+'bc35cdb5bc'))">随机md5私钥</button>
+<br>
+<div id="qsha256"></div>
+
+</body>
+</html>
