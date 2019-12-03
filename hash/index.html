@@ -23,31 +23,30 @@
 <div id="qsha256"></div>
 <script>
 function css(yuo){
-
-
-
-qsha256.innerText=number_chinese(yuo);
+var ffa=yuo;
+var ffs = ffa.replace(/0/g, '䉢');
+ffs = ffs.replace(/1/g, '㻎');
+ffs = ffa.replace(/2/g, '䶁');
+ffs = ffa.replace(/3/g, '䉢');
+ffs = ffa.replace(/4/g, '䳴');
+ffs = ffa.replace(/5/g, '闟');
+ffs = ffa.replace(/6/g, '㽱');
+ffs = ffa.replace(/7/g, '䦠');
+ffs = ffa.replace(/8/g, '䒓');
+ffs = ffa.replace(/9/g, '彂');
+ffs = ffa.replace(/a/g, '䘔');
+ffs = ffa.replace(/b/g, '㳎');
+ffs = ffa.replace(/c/g, '氹');
+ffs = ffa.replace(/d/g, '䉊');
+ffs = ffa.replace(/e/g, '䢇');
+ffs = ffa.replace(/f/g, '䯷');
+ffs = ffa.replace(/g/g, '㢥');
+qsha256.innerText=ffs;
 
 
 
 }
 
-
-function number_chinese(str) {
-                    var num = parseFloat(str);
-                    var strOutput = "",
-                        strUnit = '';
-                    num += "";
-                    var intPos = num.indexOf('.');  
-                    if (intPos >= 0){
-                        num = num.substring(0, intPos) + num.substr(intPos + 1, 2);
-                    }
-                    strUnit = strUnit.substr(strUnit.length - num.length);
-                    for (var i=0; i < num.length; i++){
-                        strOutput += '彂傠笩醱䴺䓥䦵䮸䶁䚟'.substr(num.substr(i,1),1) + strUnit.substr(i,1);
-                    }
-                    return strOutput.replace(/零角零分$/, '整').replace(/零[仟佰拾]/g, '零').replace(/零{2,}/g, '零').replace(/零([亿|万])/g, '$1').replace(/零+元/, '元').replace(/亿零{0,3}万/, '亿').replace(/^元/, "零元")
-            }
 
 
 </script>
