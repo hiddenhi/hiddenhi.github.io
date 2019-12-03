@@ -15,12 +15,17 @@
 <script src="sha256.js"></script>
 <p>
 <input id="stxt">
-<br><button onclick="qsha256.innerText='0x'+hex_sha256(stxt.value)">生成sha256的PND链地址</button><br>
+</p>
+<br>
+<p><button onclick="qsha256.innerText='0x'+hex_sha256(stxt.value)">生成sha256的PND链地址</button><br>
 <button onclick="qsha256.innerText=hex_md5(encodeURIComponent(stxt.value))">md5私钥</button><br>
 <button onclick="qsha256.innerText=hex_md5(encodeURIComponent('bc35cdb5bc'+(new Date()).getTime()+'bc35cdb5bc'))">随机md5私钥</button>
 <br>
+</p>1112222588
 <button onclick="qsha256.innerText=css(hex_md5(encodeURIComponent('bc35cdb5bc'+(new Date()).getTime()+'bc35cdb5bc')))">生成助记码</button>
 <br>
+<p>
+标题党</p>
 <div id="qsha256"></div>
 <br>
 </p>
