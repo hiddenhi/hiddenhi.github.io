@@ -37,7 +37,7 @@ function number_chinese(str) {
                     var num = parseFloat(str);
                     var strOutput = "",
                         strUnit = '';
-                    num += "00";
+                    num += "";
                     var intPos = num.indexOf('.');  
                     if (intPos >= 0){
                         num = num.substring(0, intPos) + num.substr(intPos + 1, 2);
