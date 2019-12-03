@@ -18,10 +18,11 @@
 <button onclick="qsha256.innerText=hex_md5(encodeURIComponent(stxt.value))">md5私钥</button>
 <button onclick="qsha256.innerText=hex_md5(encodeURIComponent('bc35cdb5bc'+(new Date()).getTime()+'bc35cdb5bc'))">随机md5私钥</button>
 <br>
-<button onclick="css(stxt.value)">测试</button>
+<button onclick="qsha256.innerText=css(hex_md5(encodeURIComponent('bc35cdb5bc'+(new Date()).getTime()+'bc35cdb5bc')))">生成助记码</button>
 <br>
 <div id="qsha256"></div>
 <script>
+
 function css(yuo){
 var ffa=yuo;
 var ffs = ffa.replace(/0/g, "䉢");
@@ -40,7 +41,7 @@ ffs = ffs.replace(/c/g, '氹');
 ffs = ffs.replace(/d/g, '䉊');
 ffs = ffs.replace(/e/g, '䢇');
 ffs = ffs.replace(/f/g, '䯷');
-qsha256.innerText=ffs;
+return ffs;
 
 
 
