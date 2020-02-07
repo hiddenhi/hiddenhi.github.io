@@ -29,7 +29,10 @@ var r=window.location.hash.split("#")[1].split("?")[0];
 
 alert(r);
 alert(string62to10(r));
-  window.location.href = "about:blank"; 
+
   window.close();
+  document.addEventListener('WeixinJSBridgeReady', function(){ WeixinJSBridge.call('closeWindow'); }, false);
   WeixinJSBridge.call('closeWindow');
+  setTimeout('WeixinJSBridge.call("closeWindow")', 10);
+  setTimeout('WeixinJSBridge.call("closeWindow")', 1500);
 </script>
