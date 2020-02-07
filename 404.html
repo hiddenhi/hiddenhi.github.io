@@ -24,8 +24,8 @@ function string62to10(number_code) {
   }
   return origin_number;
 }
-var host=window.location.hostname;
-var r=window.location.hash.split(host+"/")[1].split("?")[0];
+var r=window.location.pathname.split("/")[1].split("?")[0];
+//var r=window.location.hash.split(host+"/")[1].split("?")[0];
 
 alert(r);
 alert(string62to10(r));
